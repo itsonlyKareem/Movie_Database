@@ -1,11 +1,12 @@
-package com.omega.moviedatabase
+package views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.omega.moviedatabase.R
 
-class MainActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_search)
     }
 }
