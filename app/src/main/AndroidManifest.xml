@@ -17,13 +17,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SearchActivity"
+            android:name="views.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".MoviesActivity"
+            android:name="views.MoviesActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name="views.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

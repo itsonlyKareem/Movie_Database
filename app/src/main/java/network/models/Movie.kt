@@ -5,6 +5,7 @@ class Movie(
     var id: Int,
     var image: String,
     var rating: Double,
-    var title: String
+    var title: String,
+    var releaseDate: String
 ) {
 }

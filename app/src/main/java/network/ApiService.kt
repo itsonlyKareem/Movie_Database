@@ -26,4 +26,11 @@ interface ApiService {
         @Query("api_key") key: String,
         @Query("page") page:Int
     ): Call<ResponseBody>
+
+    @GET("search/movie")
+    fun searchAllMovies(
+        @Query("api_key") key: String,
+        @Query("page") page: Int,
+        @Query("query") query: String
+    ): Call<ResponseBody>
 }

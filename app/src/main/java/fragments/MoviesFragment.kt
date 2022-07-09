@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,15 +19,15 @@ import viewmodels.MoviesViewModelFactory
 
 class MoviesFragment : Fragment() {
 
-    lateinit var moviesRecycler: RecyclerView
+    private lateinit var moviesRecycler: RecyclerView
     lateinit var progress: ProgressBar
-    var genreName: String = ""
+    private var genreName: String = ""
     var genreId: Int = 0
     var page = 1
 
-    lateinit var adapter: MoviesAdapter
-    lateinit var layoutManager: LinearLayoutManager
-    var moviesList: MutableList<Movie> = arrayListOf()
+    private lateinit var adapter: MoviesAdapter
+    private lateinit var layoutManager: LinearLayoutManager
+    private var moviesList: MutableList<Movie> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,21 +47,25 @@ class MoviesFragment : Fragment() {
             genreId = it
         }
 
-        // Recycler View UI Settings
-        layoutManager = GridLayoutManager(context, 2)
-        moviesRecycler.layoutManager = layoutManager
-        adapter = MoviesAdapter(moviesList)
-        moviesRecycler.adapter = adapter
+
 
         // ViewModel Implementation
         val moviesViewModelFactory = MoviesViewModelFactory(MoviesRepo())
         val moviesViewModel =
             ViewModelProvider(this, moviesViewModelFactory)[MoviesViewModel::class.java]
         moviesViewModel.getMovies(genreId, 1)
+        moviesViewModel.movies.observe(viewLifecycleOwner) {
+            moviesList.addAll(it)
+        }
+
+        // Recycler View UI Settings
+        layoutManager = GridLayoutManager(context, 2)
+        moviesRecycler.layoutManager = layoutManager
+        adapter = MoviesAdapter(moviesList)
+        moviesRecycler.adapter = adapter
 
 
         moviesViewModel.movies.observeForever {
-            moviesList.addAll(it)
             adapter.notifyDataSetChanged()
             progress.visibility = View.GONE
             moviesRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -71,7 +74,6 @@ class MoviesFragment : Fragment() {
                     if (!recyclerView.canScrollVertically(1)) {
                         progress.visibility = View.VISIBLE
                         page++
-                        moviesList.clear()
                         moviesViewModel.getMovies(genreId, page)
                     }
                 }

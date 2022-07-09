@@ -20,6 +20,10 @@ class MoviesViewModel (private val moviesRepo: MoviesRepo): ViewModel() {
         moviesRepo.getMovies(genreId,page)
     }
 
+    fun searchAllMovies(page: Int, query:String) {
+        moviesRepo.searchAll(page, query)
+    }
+
     val genres: LiveData<MutableList<Genre>> = moviesRepo.genresLiveData
     val movies: LiveData<MutableList<Movie>> = moviesRepo.moviesLiveData
 }

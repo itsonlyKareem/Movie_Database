@@ -13,7 +13,7 @@ import network.models.Movie
 
 class MoviesAdapter(private val moviesList: MutableList<Movie>) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
-    val movies: MutableList<Movie> = moviesList
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
@@ -33,6 +33,7 @@ class MoviesAdapter(private val moviesList: MutableList<Movie>) :
         }
 
         holder.title.text = currentMovie.title
+        holder.release.text = currentMovie.releaseDate
     }
 
     override fun getItemCount(): Int {
@@ -40,9 +41,10 @@ class MoviesAdapter(private val moviesList: MutableList<Movie>) :
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image = itemView.findViewById<ImageView>(R.id.movie_image)
-        val title = itemView.findViewById<TextView>(R.id.movie_title)
-        val rating = itemView.findViewById<TextView>(R.id.movie_rate)
-        val adult = itemView.findViewById<LinearLayout>(R.id.movie_adult)
+        val image: ImageView = itemView.findViewById(R.id.movie_image)
+        val title: TextView = itemView.findViewById(R.id.movie_title)
+        val rating: TextView = itemView.findViewById(R.id.movie_rate)
+        val adult: LinearLayout = itemView.findViewById(R.id.movie_adult)
+        val release: TextView = itemView.findViewById(R.id.movie_release)
     }
 }

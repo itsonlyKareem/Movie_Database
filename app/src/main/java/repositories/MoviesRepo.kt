@@ -10,6 +10,7 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Query
 
 class MoviesRepo() {
     val genresLiveData = MutableLiveData<MutableList<Genre>>()
@@ -73,8 +74,9 @@ class MoviesRepo() {
                             val image = movieObject.getString("poster_path")
                             val title = movieObject.getString("title")
                             val rating = movieObject.getDouble("vote_average")
+                            val releaseDate = movieObject.getString("release_date")
 
-                            tempList.add(Movie(adult, id, image, rating, title))
+                            tempList.add(Movie(adult, id, image, rating, title,releaseDate))
                         }
                     } else {
                         println("Response Error")
@@ -107,8 +109,9 @@ class MoviesRepo() {
                             val image = movieObject.getString("poster_path")
                             val title = movieObject.getString("title")
                             val rating = movieObject.getDouble("vote_average")
+                            val releaseDate = movieObject.getString("release_date")
 
-                            tempList.add(Movie(adult, id, image, rating, title))
+                            tempList.add(Movie(adult, id, image, rating, title,releaseDate))
                         }
                     } else {
                         println("Response Error")
@@ -124,5 +127,46 @@ class MoviesRepo() {
             })
         }
 
+    }
+
+    fun searchAll(page: Int,query: String) {
+        var tempList: MutableList<Movie> = arrayListOf()
+        val apiService: ApiService = ApiClient.getInstance().create(ApiService::class.java)
+
+        val result = apiService.searchAllMovies(
+            "7c6461abd639a001e8af7ede73ab1b52",
+            page,
+            query
+        )
+        result.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    val jsonObject = JSONObject(response.body()!!.string())
+                    val movies = jsonObject.getJSONArray("results")
+
+                    for (i in 0 until movies.length()) {
+                        val movieObject = movies.getJSONObject(i)
+
+                        val adult = movieObject.getBoolean("adult")
+                        val id = movieObject.getInt("id")
+                        val image = movieObject.getString("poster_path")
+                        val title = movieObject.getString("title")
+                        val rating = movieObject.getDouble("vote_average")
+                        val releaseDate = movieObject.getString("release_date")
+
+                        tempList.add(Movie(adult, id, image, rating, title,releaseDate))
+                    }
+                } else {
+                    println("Response Error")
+                }
+
+                moviesLiveData.postValue(tempList)
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+
+            }
+
+        })
     }
 }
