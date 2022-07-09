@@ -7,5 +7,4 @@ class Movie(
     var rating: Double,
     var title: String,
     var releaseDate: String
-) {
-}
+)

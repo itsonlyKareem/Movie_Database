@@ -46,7 +46,7 @@ class SearchActivity : AppCompatActivity() {
             SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 queryText = p0!!
-                moviesViewModel.searchAllMovies(1, p0!!)
+                moviesViewModel.searchAllMovies(1, p0)
                 return true
             }
 
@@ -56,7 +56,7 @@ class SearchActivity : AppCompatActivity() {
 
         })
 
-        // Infinite Scrolling
+        // Infinite Scrolling (Explained further in MoviesActivity).
         moviesViewModel.movies.observeForever {
             adapter.notifyDataSetChanged()
             recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {

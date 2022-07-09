@@ -40,14 +40,13 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         getViews(view)
 
+        // Obtaining arguments from PagerAdapter
         arguments?.getString("name")?.let {
             genreName = it
         }
         arguments?.getInt("id")?.let {
             genreId = it
         }
-
-
 
         // ViewModel Implementation
         val moviesViewModelFactory = MoviesViewModelFactory(MoviesRepo())
@@ -79,6 +78,25 @@ class MoviesFragment : Fragment() {
                 }
             })
         }
+
+        /*
+        How Infinite Scrolling is implemented:
+        1- The appropriate ViewModel is referenced and the method
+        to fetch the movies is called.
+        2- The loaded movies are observed once to obtain its data
+        and added to the moviesList created exclusively for this
+        class.
+        3- The first batch of movies are fed to the adapter to view
+        them first
+        4- A Scroll listener is then attached to the Recycler View
+        to detect whether is view is scrolled to its end.
+        5- If the view's end is reached, the method to fetch the next
+        page of movies is called and the ViewModel's list is reloaded
+        with the new content.
+        6- The new content is added to the existing moviesList and the
+        adapter is notified with the new content is received to be able
+        to load it seamlessly.
+         */
 
     }
 

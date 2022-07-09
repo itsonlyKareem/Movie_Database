@@ -10,9 +10,8 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Query
 
-class MoviesRepo() {
+class MoviesRepo {
     val genresLiveData = MutableLiveData<MutableList<Genre>>()
     val moviesLiveData = MutableLiveData<MutableList<Movie>>()
 
@@ -29,8 +28,8 @@ class MoviesRepo() {
                     val genres = jsonObject.getJSONArray("genres")
 
                     for (i in 0 until genres.length()) {
-                        var id = genres.getJSONObject(i).getInt("id")
-                        var name = genres.getJSONObject(i).getString("name")
+                        val id = genres.getJSONObject(i).getInt("id")
+                        val name = genres.getJSONObject(i).getString("name")
                         tempList.add(Genre(id, name))
                     }
 
@@ -50,7 +49,7 @@ class MoviesRepo() {
     }
 
     fun getMovies(genreId: Int, page: Int) {
-        var tempList: MutableList<Movie> = arrayListOf()
+        val tempList: MutableList<Movie> = arrayListOf()
         val apiService: ApiService = ApiClient.getInstance().create(ApiService::class.java)
 
         if (genreId!=0) {
@@ -130,7 +129,7 @@ class MoviesRepo() {
     }
 
     fun searchAll(page: Int,query: String) {
-        var tempList: MutableList<Movie> = arrayListOf()
+        val tempList: MutableList<Movie> = arrayListOf()
         val apiService: ApiService = ApiClient.getInstance().create(ApiService::class.java)
 
         val result = apiService.searchAllMovies(

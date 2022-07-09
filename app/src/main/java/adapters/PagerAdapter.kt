@@ -14,6 +14,11 @@ class PagerAdapter(fragment: MoviesActivity, private val genreList: MutableList<
     }
 
     override fun createFragment(position: Int): Fragment {
+        /*
+        Create a dynamic fragment and supply it with a different
+        ID and Genre label in every tab accordingly.
+         */
+
         val fragment = MoviesFragment()
         fragment.arguments = Bundle().apply {
             putString("name", genreList[position].name)

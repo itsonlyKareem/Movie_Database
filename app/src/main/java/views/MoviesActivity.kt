@@ -31,6 +31,11 @@ class MoviesActivity : AppCompatActivity() {
         val moviesViewModel =
             ViewModelProvider(this, moviesViewModelFactory)[MoviesViewModel::class.java]
 
+        /*
+        The genre LiveData is observed once to obtain all the
+        Genres available. They are then added to a list and supplied
+        to the adapter responsible for inflating the fragments.
+         */
         moviesViewModel.genres.observe(this) {
             val genresList = it
             genresList.add(0, Genre(0, "All"))
@@ -41,6 +46,7 @@ class MoviesActivity : AppCompatActivity() {
             }.attach()
         }
 
+        // Navigating to the Search Activity.
         search.setOnClickListener {
             val intent = Intent(this,SearchActivity::class.java)
             startActivity(intent)

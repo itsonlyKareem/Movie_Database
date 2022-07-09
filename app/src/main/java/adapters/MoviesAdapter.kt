@@ -21,11 +21,19 @@ class MoviesAdapter(private val moviesList: MutableList<Movie>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // Get current movie object
         val currentMovie = moviesList[position]
+
+        // Load movie poster
         holder.image.load("http://image.tmdb.org/t/p/original" + currentMovie.image){
             crossfade(true)
         }
         holder.rating.text = currentMovie.rating.toString()
+
+        /*
+        Check if movie is classified as adult or contains
+        adult scenes to show appropriate UI warnings.
+         */
         if (!currentMovie.adult) {
             holder.adult.visibility = View.GONE
         } else {
