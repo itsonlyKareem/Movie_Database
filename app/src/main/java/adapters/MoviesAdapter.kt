@@ -1,5 +1,6 @@
 package adapters
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,7 @@ class MoviesAdapter(private val moviesList: MutableList<Movie>) :
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Get current movie object
         val currentMovie = moviesList[position]
@@ -43,7 +45,7 @@ class MoviesAdapter(private val moviesList: MutableList<Movie>) :
         }
 
         holder.title.text = currentMovie.title
-        holder.release.text = currentMovie.releaseDate
+        holder.release.text = "Release date: " + currentMovie.releaseDate
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailsActivity::class.java)
