@@ -50,6 +50,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
+                android:fontFamily="@font/alata"
                 android:text="Movie Name"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
@@ -61,6 +62,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
+                android:fontFamily="@font/alata"
                 android:text="TextView"
                 android:textColor="#CCCCCC" />
 
@@ -80,6 +82,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
+                android:fontFamily="@font/alata"
                 android:text="Budget: $10000"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -92,6 +95,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
+                android:fontFamily="@font/alata"
                 android:text="Release Date: "
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -104,6 +108,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
+                android:fontFamily="@font/alata"
                 android:text="Run Time: "
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -125,6 +130,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
+                android:fontFamily="@font/alata"
                 android:text="Genres"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
@@ -145,6 +151,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/alata"
                 android:text="Original language"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:cardCornerRadius="40dp"
-        app:cardElevation="10dp">
+        app:cardElevation="20dp">
 
         <ImageView
             android:id="@+id/movie_image"
@@ -26,8 +26,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
         android:ellipsize="end"
+        android:fontFamily="@font/alata"
         android:lines="2"
         android:text="TextView"
         android:textColor="#FFFFFF"
@@ -42,8 +45,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="18dp"
+            android:layout_height="match_parent"
             android:layout_weight="0"
             app:srcCompat="@drawable/rate" />
 
@@ -54,6 +57,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
+            android:fontFamily="@font/alata"
             android:text="TextView"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
@@ -68,8 +72,8 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             app:srcCompat="@drawable/adult" />
 
         <TextView
@@ -79,6 +83,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
+            android:fontFamily="@font/alata"
             android:text="Adults only"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
@@ -90,6 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/alata"
         android:text="TextView"
         android:textColor="#FFFFFF"
         android:textSize="12sp" />
