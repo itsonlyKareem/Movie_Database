@@ -7,6 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import network.models.Genre
 import network.models.Movie
+import network.models.MovieDetails
 import repositories.MoviesRepo
 
 class MoviesViewModel (private val moviesRepo: MoviesRepo): ViewModel() {
@@ -24,6 +25,11 @@ class MoviesViewModel (private val moviesRepo: MoviesRepo): ViewModel() {
         moviesRepo.searchAll(page, query)
     }
 
+    fun getMovie(movieId:Int) {
+        moviesRepo.getMovie(movieId)
+    }
+
     val genres: LiveData<MutableList<Genre>> = moviesRepo.genresLiveData
     val movies: LiveData<MutableList<Movie>> = moviesRepo.moviesLiveData
+    val movieDetails: LiveData<MovieDetails> = moviesRepo.movieDetailsLiveData
 }

@@ -1,5 +1,6 @@
 package adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.omega.moviedatabase.R
 import network.models.Movie
+import views.DetailsActivity
 
 class MoviesAdapter(private val moviesList: MutableList<Movie>) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
@@ -42,6 +44,12 @@ class MoviesAdapter(private val moviesList: MutableList<Movie>) :
 
         holder.title.text = currentMovie.title
         holder.release.text = currentMovie.releaseDate
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailsActivity::class.java)
+            intent.putExtra("movieId", currentMovie.id)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
