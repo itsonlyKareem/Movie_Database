@@ -29,7 +29,7 @@ The architecture used in the project is *Model-View-ViewModel* (MVVM)
 ---
 ## Networking
 The client used in the project is **Retrofit**
-```
+```kotlin
 object ApiClient {
 
     private const val BASE_URL = "https://api.themoviedb.org/3/"
