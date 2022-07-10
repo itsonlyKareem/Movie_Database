@@ -17,9 +17,10 @@ An informative movies database that contains everything movies related!
 
 ---
 ## Designs
-| Home Screen | Details Screen | Search Screen |
-| ------ | ---- | ----|
-| ![Screenshot_1657311059](https://user-images.githubusercontent.com/80595523/178151049-fe96a2a9-3125-4f8d-98fd-51cacffa04d2.png) | ![Screenshot_1657465355](https://user-images.githubusercontent.com/80595523/178151118-46af5958-8888-4b15-bccb-97b9ac608faf.png) | ![Screenshot_1657466803](https://user-images.githubusercontent.com/80595523/178151343-95687b1c-b8d5-4771-9b19-0dceabc5aab5.png) |
+| Home Screen | Details Screen | Search Screen | Splash Screen
+| ------ | ---- | ---- | ---- |
+| ![Screenshot_1657470754](https://user-images.githubusercontent.com/80595523/178153535-a6979e35-5e5b-49d1-85dd-5cfd3ea172b5.png) | ![Screenshot_1657465355](https://user-images.githubusercontent.com/80595523/178151118-46af5958-8888-4b15-bccb-97b9ac608faf.png) | ![Screenshot_1657470762](https://user-images.githubusercontent.com/80595523/178153546-de19b9ae-a6bb-4334-a469-b4f833ba1567.png) | ![Screenshot_1657470385](https://user-images.githubusercontent.com/80595523/178153407-c91c2bba-3fc0-4047-94b2-0f3f2cd7041a.png)
+
 ---
 ## Architucture
 The architecture used in the project is *Model-View-ViewModel* (MVVM)
