@@ -21,6 +21,7 @@
         android:id="@+id/forward">
         <OnSwipe
             app:dragDirection="dragLeft"
+            app:springStiffness="0.5"
             app:touchAnchorSide="left"/>
     </Transition>
 

@@ -47,6 +47,7 @@ class SearchActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 queryText = p0!!
                 moviesViewModel.searchAllMovies(1, p0)
+                moviesList.clear()
                 return true
             }
 

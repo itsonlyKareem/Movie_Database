@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/bungee"
-            android:text="Movie Database"
+            android:text="Movies Database"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="50sp"
