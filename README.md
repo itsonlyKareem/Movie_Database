@@ -17,9 +17,9 @@ An informative movies database that contains everything movies related!
 
 ---
 ## Designs
-| Home Screen | Details Screen | Search Screen | Splash Screen
+| Home Screen | Details Screen | Search Screen | Splash Screen |
 | ------ | ---- | ---- | ---- |
-| ![Screenshot_1657470754](https://user-images.githubusercontent.com/80595523/178153535-a6979e35-5e5b-49d1-85dd-5cfd3ea172b5.png) | ![Screenshot_1657465355](https://user-images.githubusercontent.com/80595523/178151118-46af5958-8888-4b15-bccb-97b9ac608faf.png) | ![Screenshot_1657470762](https://user-images.githubusercontent.com/80595523/178153546-de19b9ae-a6bb-4334-a469-b4f833ba1567.png) | ![Screenshot_1657470385](https://user-images.githubusercontent.com/80595523/178153407-c91c2bba-3fc0-4047-94b2-0f3f2cd7041a.png)
+| ![Screenshot_1657472025](https://user-images.githubusercontent.com/80595523/178154368-a26da6bf-a33e-4b4d-b485-f5ff81ca6dec.png) | ![Screenshot_1657472032](https://user-images.githubusercontent.com/80595523/178154374-46b0a8dd-3337-490a-84e9-6110711aefb9.png) | ![Screenshot_1657472048](https://user-images.githubusercontent.com/80595523/178154383-b6a1d18d-536b-4871-9f4c-6696b2f40611.png) | ![Screenshot_1657472021](https://user-images.githubusercontent.com/80595523/178154385-a228f17a-f133-4872-8add-0f9ddae50b89.png) |
 
 ---
 ## Architucture
